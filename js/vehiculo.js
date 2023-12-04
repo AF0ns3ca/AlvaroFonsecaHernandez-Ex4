@@ -82,4 +82,5 @@ export class Vehiculo {
     `;
     mostrarResultado(`<p>${datos}</p>`);
   }
+
 }

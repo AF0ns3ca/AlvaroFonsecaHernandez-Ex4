@@ -1,74 +1,74 @@
 import { Vehiculo } from "./vehiculo.js";
 import { AutomovilDeportivo } from "./automovilDeportivo.js";
 
+const container = document.querySelector(".container");
 const resultadoContainer = document.createElement("div");
 resultadoContainer.classList.add("resultado-container");
-document.body.appendChild(resultadoContainer);
+container.appendChild(resultadoContainer);
 
 export function mostrarResultado(mensaje){
     resultadoContainer.innerHTML += `<p>${mensaje}</p>`;
 }
 
-const vehiculo = new Vehiculo('BMW','CLK','Rojo',1992,2400);
+//Creamos un nuevo objeto de tipo Vehiculo
+const vehiculo1 = new Vehiculo('BMW','CLK','Rojo',1992,2400);
+//Mostramos los datos del objeto vehiculo1
 mostrarResultado('vehiculo');
-vehiculo.mostrarDatos();
-vehiculo.arrancar();
-vehiculo.acelerar(140);
-vehiculo.frenar();
+vehiculo1.mostrarDatos();
+vehiculo1.arrancar();
+vehiculo1.acelerar(140);
+vehiculo1.frenar();
 
+//Creamos un objeto con los datos del vehiculo1
 const vehiculoObject = {
-    marca: vehiculo.marca,
-    modelo: vehiculo.modelo,
-    color: vehiculo.color,
-    fechaFabricacion: vehiculo.fechaFabricacion,
-    cilindrada: vehiculo.cilindrada
+    marca: vehiculo1.marca,
+    modelo: vehiculo1.modelo,
+    color: vehiculo1.color,
+    fechaFabricacion: vehiculo1.fechaFabricacion,
+    cilindrada: vehiculo1.cilindrada
 };
 
-for (const key in vehiculoObject) {
-    //hasOwnProperty comprueba si la propiedad existe en el objeto
-    if (vehiculoObject.hasOwnProperty(key)){
-        localStorage.setItem(key, vehiculoObject[key]);
-    }
-}
-
-for (const key in localStorage) {
-    if (localStorage.hasOwnProperty(key)){
-        console.log(`${key}: ${localStorage[key]}`);
-    }
-}
-
+//Limpiamos el localStorage para meter los datos del vehiculo
+localStorage.clear();
+//Guardamos los datos del vehiculo en localStorage
+localStorage.setItem("vehiculo", JSON.stringify(vehiculoObject));
 //Mostrar los datos de localStorage
-const vehiculoLocalStorage = JSON.parse(localStorage.getItem("vehiculoObject"));
-console.log(vehiculoLocalStorage);
+console.log(JSON.parse(localStorage.getItem("vehiculo")));
+
+
 
 mostrarResultado('-------------------------------------------------');
-const deportivo = new AutomovilDeportivo("Ferrari", "Spider", "Amarillo", '2020', 4000, 500);
+//Creamos un nuevo objeto de tipo AutomovilDeportivo
+const deportivo1 = new AutomovilDeportivo("Ferrari", "Spider", "Amarillo", '2020', 4000, 500);
+//Mostramos los datos del objeto deportivo
 mostrarResultado('deportivo');
-deportivo.mostrarDatos();
-deportivo.arrancar();
-deportivo.acelerar(140);
-deportivo.frenar();
+deportivo1.mostrarDatos();
+deportivo1.arrancar();
+deportivo1.acelerar(140);
+deportivo1.frenar();
 
+//Creamos un objeto con los datos del deportivo1
 const deportivoObject = {
-    marca: deportivo.marca,
-    modelo: deportivo.modelo,
-    color: deportivo.color,
-    fechaFabricacion: deportivo.fechaFabricacion,
-    cilindrada: deportivo.cilindrada,
-    potenciaMotor: deportivo.potenciaMotor
+    marca: deportivo1.marca,
+    modelo: deportivo1.modelo,
+    color: deportivo1.color,
+    fechaFabricacion: deportivo1.fechaFabricacion,
+    cilindrada: deportivo1.cilindrada,
+    potenciaMotor: deportivo1.potenciaMotor
 };
 
-for (const key2 in deportivoObject) {
-    if (deportivoObject.hasOwnProperty(key2)){
-        localStorage.setItem(key2, deportivoObject[key2]);
+//Guardamos los datos del deportivo en localStorage con un bucle iterativo
+for (const key in deportivoObject) {
+    if (deportivoObject.hasOwnProperty(key)){
+        localStorage.setItem(key, deportivoObject[key]);
     }
 }
 
 
 
-//Elimina dos propiedades de localStorage
-// localStorage.removeItem("color");
-// localStorage.removeItem("cilindrada");
+//Elimina dos propiedades de localStorage para las claves "color" y "cilindrada" que tenemos guardadas, el objeto vehiculo estara intacto
+localStorage.removeItem("color");
+localStorage.removeItem("cilindrada");
 
-//Elimina el contenido de localStorage  
+//Elimina el contenido de localStorage, comentado para que no se borre el contenido antes de verlo  
 //localStorage.clear();
