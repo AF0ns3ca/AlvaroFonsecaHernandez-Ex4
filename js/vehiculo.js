@@ -1,12 +1,13 @@
 import { mostrarResultado } from "./main.js";
 export class Vehiculo {
-  //Definir una variable como privada, se pone # antes de la almohadilla
+  //VARIABLES PRIVADAS
   #marca;
   #modelo;
   #color;
   #fechaFabricacion;
   #cilindrada;
 
+  //CONSTRUCTOR POR PARAMETROS
   constructor(marca, modelo, color, fechaFabricacion, cilindrada) {
     this.#marca = marca;
     this.#modelo = modelo;
@@ -15,6 +16,7 @@ export class Vehiculo {
     this.#cilindrada = cilindrada;
   }
 
+  //GETTERS Y SETTERS
   get marca() {
     return this.#marca;
   }
@@ -55,23 +57,30 @@ export class Vehiculo {
     this.#cilindrada = cilindrada;
   }
 
+  //METODO ACELERAR
   acelerar(velocidad) {
     const mensaje = `<br> El ${this.#marca} ${
       this.#modelo
     } ha acelerado hasta ${velocidad} km/h`;
+    //USO DE MOSTRARRESULTADO
     mostrarResultado(`<p>${mensaje}</p>`);
   }
 
+  //METODO ARRANCAR
   arrancar() {
     const mensaje = `<br> El ${this.#marca} ${this.#modelo} ha arrancado.`;
+    //USO DE MOSTRARRESULTADO
     mostrarResultado(`<p>${mensaje}</p>`);
   }
 
+  //METODO FRENAR
   frenar() {
     const mensaje = `<br> El ${this.#marca} ${this.#modelo} ha frenado.`;
+    //USO DE MOSTRARRESULTADO
     mostrarResultado(`<p>${mensaje}</p>`);
   }
 
+  //METODO MOSTRAR DATOS
   mostrarDatos() {
     const datos = `
         La marca es: ${this.#marca} <br> 
@@ -80,6 +89,7 @@ export class Vehiculo {
         Se fabrico el año: ${this.#fechaFabricacion} <br> 
         Cilindrada: ${this.#cilindrada} <br>
     `;
+    //USO DE MOSTRARRESULTADO
     mostrarResultado(`<p>${datos}</p>`);
   }
 

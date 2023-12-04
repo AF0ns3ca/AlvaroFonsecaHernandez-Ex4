@@ -45,6 +45,7 @@ mostrarResultado('deportivo');
 deportivo1.mostrarDatos();
 deportivo1.arrancar();
 deportivo1.acelerar(140);
+deportivo1.activarModoDeportivo();
 deportivo1.frenar();
 
 //Creamos un objeto con los datos del deportivo1

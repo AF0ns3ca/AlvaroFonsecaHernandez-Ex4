@@ -1,4 +1,4 @@
-/*Fuente Tipografica en local*/
+/*FUENTE TIPOGRAFICA LOCAL*/
 @font-face {
   font-family: "MateSC";
   src: url("../assets/fonts/mateSC/MateSC-Regular.ttf") format("truetype");
@@ -11,7 +11,8 @@
 }
 
 body {
-  font-family: "MateSC", sans-serif;
+  font-family: MateSC, arial, Arial, Helvetica, sans-serif;
+  /*IMAGEN DE FONDO*/
   background-image: url("../assets/imgs/wallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -54,17 +55,20 @@ h1 {
   border-radius: 5px;
   animation: aparecer 1s ease-out;
   background: rgb(255, 255, 255);
+  /*DEGRADADO*/
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
     rgba(73, 72, 74, 1) 82%,
     rgba(0, 0, 0, 1) 100%
   );
-  /*text-shadow aplicado al contenedor*/
+  /*SAOMBREADO*/
   -webkit-box-shadow: 0px 0px 9px 0px rgba(255, 255, 255, 0.62);
   -moz-box-shadow: 0px 0px 9px 0px rgba(255, 255, 255, 0.62);
   box-shadow: 0px 0px 9px 0px rgba(255, 255, 255, 0.62);
 }
+
+/*PSEUDOSELECTORES*/
 
 /*Este pseudoselector aplicara estos estilos solo al primer elemento de tipo párrafo
    Como vemos la letra se mantiene en 1.5 y no en 1.2 porque el pseudoselector tiene mas especificidad*/
@@ -82,6 +86,8 @@ p {
 p::first-letter {
   text-transform: uppercase;
 }
+
+/*KEYFRAMES PERSONALIZADOS*/
 
 /*Keyfram que hace aparecer lentamente el contenido de la pagina*/
 @keyframes aparecer {
@@ -122,7 +128,7 @@ p::first-letter {
   }
 }
 
-.miCarro {
+.turboTuniverS {
   margin: 20px;
   width: 280px;
   height: 150px;
