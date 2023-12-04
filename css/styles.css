@@ -1,0 +1,5 @@
+/*Fuente Tipografica en local*/
+@font-face {
+    font-family: "MateSC";
+    src: url("../assets/fonts/mateSC/MateSC-Regular.ttf") format("truetype");
+}

@@ -1,0 +1,3 @@
+class AutomovilDeportivo extends Vehiculo{
+    
+}
