@@ -1,4 +1,6 @@
+import { mostrarResultado } from "./main.js";
 export class Vehiculo {
+  //Definir una variable como privada, se pone # antes de la almohadilla
   #marca;
   #modelo;
   #color;
@@ -16,48 +18,68 @@ export class Vehiculo {
   get marca() {
     return this.#marca;
   }
-  get modelo() {
-    return this.#modelo;
-  }
-  get color() {
-    return this.#color;
-  }
-  get fechaFabricacion() {
-    return this.#fechaFabricacion;
-  }
-  get cilindrada() {
-    return this.#cilindrada;
-  }
+
   set marca(marca) {
     this.#marca = marca;
   }
+
+  get modelo() {
+    return this.#modelo;
+  }
+
   set modelo(modelo) {
     this.#modelo = modelo;
   }
+
+  get color() {
+    return this.#color;
+  }
+
   set color(color) {
     this.#color = color;
   }
+
+  get fechaFabricacion() {
+    return this.#fechaFabricacion;
+  }
+
   set fechaFabricacion(fechaFabricacion) {
     this.#fechaFabricacion = fechaFabricacion;
   }
+
+  get cilindrada() {
+    return this.#cilindrada;
+  }
+
   set cilindrada(cilindrada) {
     this.#cilindrada = cilindrada;
   }
 
-  arrancar(){
-    return `El ${marca} ${modelo} ha arrancado`;
+  acelerar(velocidad) {
+    const mensaje = `<br> El ${this.#marca} ${
+      this.#modelo
+    } ha acelerado hasta ${velocidad} km/h`;
+    mostrarResultado(`<p>${mensaje}</p>`);
   }
 
-  acelerar(velocidad){
-    return `El ${marca} ${modelo} ha acelerado hasta los ${velocidad} km/h`;
+  arrancar() {
+    const mensaje = `<br> El ${this.#marca} ${this.#modelo} ha arrancado.`;
+    mostrarResultado(`<p>${mensaje}</p>`);
   }
 
-  frenar(){
-    return `El ${marca} ${modelo} ha acelerado ha frenado`;
+  frenar() {
+    const mensaje = `<br> El ${this.#marca} ${this.#modelo} ha frenado.`;
+    mostrarResultado(`<p>${mensaje}</p>`);
   }
 
-  mostrarResultado() {
-    let resultado = `Marca: ${marca} <br> Modelo: ${modelo} <br> Color: ${color} <br> Fecha de Fabricacion: ${fechaFabricacion} <br> Cilindrada: ${cilindrada} <br>`
+  mostrarDatos() {
+    const datos = `
+        La marca es: ${this.#marca} <br> 
+        El modelo: ${this.#modelo} <br> 
+        El color es: ${this.#color} <br> 
+        Se fabrico el año: ${this.#fechaFabricacion} <br> 
+        Cilindrada: ${this.#cilindrada} <br>
+    `;
+    mostrarResultado(`<p>${datos}</p>`);
   }
-
 }

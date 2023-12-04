@@ -1,3 +1,5 @@
+import { Vehiculo } from "./vehiculo.js";
+import { mostrarResultado } from "./main.js";
 export class AutomovilDeportivo extends Vehiculo{
 
     #potenciaMotor;
@@ -7,6 +9,10 @@ export class AutomovilDeportivo extends Vehiculo{
         this.#potenciaMotor = potenciaMotor;
       }
 
+      activarModoDeportivo(){
+        return `El ${this.marca} ${this.modelo} ha acelerado ha activado el modo deportivo`;
+      }
+
       get potenciaMotor() {
         return this.#potenciaMotor;
       }
@@ -14,10 +20,11 @@ export class AutomovilDeportivo extends Vehiculo{
         this.#potenciaMotor = potenciaMotor;
       }
 
-      activarModoDeportivo(){
-        return `El ${marca} ${modelo} ha acelerado ha activado el modo deportivo`;
-      }
-    mostrarResultado(){
-        let resultado = super.mostrarResultado()+= `Potencia Motor: ${this.potenciaMotor}`;
+      
+      mostrarDatos(){
+        super.mostrarDatos();
+        const datos = `Potencia Motor: ${this.#potenciaMotor} <br>
+        `;
+        mostrarResultado(`<p>${datos}</p>`)
     }
 }
